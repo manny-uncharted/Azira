@@ -1,3 +1,5 @@
+## Azira
+
 ## Description
 
 This project is a real-time streaming service that uses WebSockets to stream messages to clients subscribed to specific tokens. It also ensures that connections are kept alive indefinitely until the client disconnects from it.
@@ -13,18 +15,24 @@ This project is a real-time streaming service that uses WebSockets to stream mes
 
 ### Installing
 
-- Unzip the file.
+- clone the repository using
+
+  ```bash
+  git clone git@github.com:manny-uncharted/Azira.git
+  ```
 - create a virtual environment
 - change directory to the demo folder using:
+
   ```bash
   cd server/
   ```
 - Install the required dependencies by running:
+
   ```bash
   pip install -r requirements.txt
   ```
 
-## Executing program {#excecuting-the-program}
+## Executing program
 
 - Start the message bus stream by running zmqREC.py.
 
@@ -76,3 +84,33 @@ This project is a real-time streaming service that uses WebSockets to stream mes
 ## WebSocket Server
 
 The WebSocket server is responsible for creating connections with clients and streaming messages for specific tokens. It uses the ConnectionManager to manage these connections.
+
+### Interact with the project using the aziraclient
+
+To test the project, after starting the server above you can interact with it using `aziraclient`
+
+* pip install aziraclient
+
+  ```python
+  from aziraclient.auth.auth_client import AuthClient
+  from aziraclient.subscription.subscription import SubscribeToToken
+
+  # User authentication
+  """
+  base_url: url where your server application is running.
+  """
+  auth_client = AuthClient(base_url="http://localhost:8000")
+  auth_client.register_user("username", "password")
+  auth_client.login_user("username", "password")
+
+  # WebSocket subscription
+  """
+  username: name of what you registered with
+  jwt_token: would be returned upon successful login.
+  action: "subscribe" or "unsubscribe"
+  token_name: name of token to subscribe to.
+
+  """
+  tester = SubscribeToToken("username", "jwt_token", "action", "token_name")
+  tester.test_connection()
+  ```
