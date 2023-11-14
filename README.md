@@ -91,6 +91,11 @@ To test the project, after starting the server above you can interact with it us
 
 * pip install aziraclient
 
+  ```bash
+  pip install aziraclient
+  ```
+
+* Test the project using the aziraclient library
   ```python
   from aziraclient.auth.auth_client import AuthClient
   from aziraclient.subscription.subscription import SubscribeToToken
