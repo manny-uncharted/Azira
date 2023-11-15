@@ -1,10 +1,3 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Thu Nov  9 13:02:28 2023
-
-@author: Niraj
-"""
-
 import zmq 
 import random 
 import json 
@@ -88,3 +81,18 @@ class zmqConn():
             time.sleep(0.1)
 
 zq = zmqConn()
+
+
+"""
+NOTE: I have noticed an error in this implementation above, as the goal here would be to convert this application to a library.
+One that allows people to build distributed communications systems from simple messaging servers that act standalone to highly complex ones, using kafka, amqp, zeromq.
+
+A better way to optimize things is to allow people choose what communication protocol they want:
+- req/rep
+- pub/sub
+
+
+This project would evolve into two phases: 
+1. Azira & AziraClient: A library that allows you to receive near real-time stream of tokens on the exchange market.
+2. #TODO: Need a name: A library that allows you to build distributed communication systems with ease, from simple messaging servers, to complex ones, using various messaging brokers, kafka, amqp, zeromq.
+"""
