@@ -2,7 +2,7 @@
 
 ## Description
 
-This project is an application that grants users the ability to subscribe and receive crypto tokens data in near real-time
+This project is an application that grants users the ability to subscribe and receive crypto tokens data in near real-time. It provides a 
 
 ## Getting Started
 
