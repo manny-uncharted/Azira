@@ -4,6 +4,7 @@
 
 import bcrypt
 import jwt
+import binascii
 from datetime import datetime, timedelta
 
 SECRET_KEY = "234234-37437y3-435364gr"  # Replace with your actual secret key
@@ -16,9 +17,17 @@ def create_hash_password(password: str):
 
 # Utility function to verify passwords
 def verify_password(plain_password, hashed_password):
-    validator = bcrypt.checkpw(plain_password.encode('utf-8'), hashed_password)
+    if not isinstance(plain_password, bytes):
+        plain_password = plain_password.encode('utf-8')
+
+    # Convert the hexadecimal string to bytes if necessary
+    if isinstance(hashed_password, str) and hashed_password.startswith("\\x"):
+        hashed_password = binascii.unhexlify(hashed_password[2:])
+
+    validator = bcrypt.checkpw(plain_password, hashed_password)
     print(f"Validator check: {validator}")
     return validator
+
 
 # Utility function to generate JWT tokens
 def create_access_token(*, data: dict, expires_delta: timedelta = None):

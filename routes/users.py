@@ -5,6 +5,7 @@ from fastapi import APIRouter, Depends, HTTPException, status, Cookie, Response,
 from sqlalchemy.orm import Session
 from datetime import datetime, timedelta
 
+
 # local imports
 from models.users import User
 from schemas.users import UserCreate, User as UserSchema
@@ -63,7 +64,7 @@ def get_user_and_login(user: UserCreate, response: Response, background_tasks: B
     try:
         user_access_token = get_token_by_user_id(db=db, user_id=db_user.id)
         # Start the background task
-        background_tasks.add_task(update_user_token_every_30_mins, db, db_user.id)
+        # background_tasks.add_task(update_user_token_every_30_mins, db, db_user.id)
     except Exception as e:
         raise HTTPException(status_code=400, detail=f"Error during login: {str(e)}")
 

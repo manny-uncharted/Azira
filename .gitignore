@@ -3,3 +3,4 @@ auth_token.txt
 *.db
 database.db
 txt
+.env
