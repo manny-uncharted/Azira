@@ -1,10 +1,12 @@
 from fastapi import FastAPI
+import asyncio
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.middleware.gzip import GZipMiddleware
 
 from middleware.middleware import ProcessTimeMiddleware #, DBSessionMiddleware
 
 from routes import users, trigger_router
+from notifications.messaging_bq import zmqConn
 
 origins = [
     "http://localhost:8000",
@@ -13,6 +15,19 @@ origins = [
 ]
 
 app = FastAPI(debug=True)
+zmq_server = zmqConn()
+
+@app.on_event("startup")
+async def startup_event():
+    await zmq_server._zmq_config(5556)
+    asyncio.create_task(zmq_server.load_data())
+    asyncio.create_task(zmq_server.server_setup("5558"))
+
+@app.on_event("shutdown")
+async def shutdown_event():
+    await zmq_server.stop()
+
+
 app.add_middleware(GZipMiddleware, minimum_size=1000)
 app.add_middleware(
     CORSMiddleware,
