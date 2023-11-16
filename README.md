@@ -34,21 +34,12 @@ This project is an application that grants users the ability to subscribe and re
 
 ## Executing program
 
-- Start the message bus stream by running zmqREC.py.
-
-  ```bash
-  python notifications/messaging_bq.py
-  ```
 - Launch the WebSocket server.
 
   ```bash
   uvicorn app.main:app --reload
   ```
-- Connect to the WebSocket using a client that supports WebSocket connections or run the test file.
-
-  ```bash
-  python tests/test_websocket.py
-  ```
+- 
 
 ## Project Structure
 
