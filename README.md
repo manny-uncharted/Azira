@@ -2,7 +2,7 @@
 
 ## Description
 
-This project is an application that grants users the ability to subscribe and receive crypto tokens data in near real-time. It provides a 
+This project is an application that grants users the ability to subscribe and receive crypto tokens data in near real-time. It provides a library that is useful for interacting with the application. [Aziraclient](https://pypi.org/project/aziraclient)
 
 ## Getting Started
 
