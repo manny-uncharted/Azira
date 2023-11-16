@@ -2,7 +2,7 @@
 
 ## Description
 
-This project is a real-time streaming service that uses WebSockets to stream messages to clients subscribed to specific tokens. It also ensures that connections are kept alive indefinitely until the client disconnects from it.
+This project is an application that grants users the ability to subscribe and receive crypto tokens data in near real-time
 
 ## Getting Started
 
@@ -94,8 +94,8 @@ To test the project, after starting the server above you can interact with it us
   ```bash
   pip install aziraclient
   ```
-
 * Test the project using the aziraclient library
+
   ```python
   from aziraclient.auth.auth_client import AuthClient
   from aziraclient.subscription.subscription import SubscribeToToken
