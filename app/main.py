@@ -26,6 +26,10 @@ async def shutdown_event():
     await zmq_server.stop()
 
 
+@app.get('/health')
+def send_response():
+    return {"response": "OKay"}
+
 app.add_middleware(GZipMiddleware, minimum_size=1000)
 app.add_middleware(
     CORSMiddleware,
