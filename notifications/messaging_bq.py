@@ -18,7 +18,7 @@ class zmqConn:
         self.pubsocket = None  # Will be initialized asynchronously
         self.runserver = asyncio.Event()
         self.runserver.set()
-        self.cache = TTLCache(maxsize=100, ttl=30)  # 30 seconds TTL
+        self.cache = TTLCache(maxsize=100, ttl=60)  # 30 seconds TTL
         self.tokens = []
 
     async def _zmq_config(self, port):
