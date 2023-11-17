@@ -78,7 +78,7 @@ class zmqConn:
                 except Exception as e:
                     pass
                     # logger.error(f"Error in load_data: {e}", exc_info=True)
-                await asyncio.sleep(0.1)
+                await asyncio.sleep(60)
             else:
                 logger.info(f"pubsocket is not initialized and the value is == {self.pubsocket}")
     
