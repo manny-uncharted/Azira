@@ -11,7 +11,7 @@ bcrypt==4.0.1
 bidict==0.22.1
 billiard==4.2.0
 cachetools==5.3.2
-celery==5.3.5
+celery
 certifi==2023.7.22
 cffi==1.16.0
 charset-normalizer==3.3.2
