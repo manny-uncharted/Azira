@@ -4,6 +4,7 @@ alembic==1.12.1
 bcrypt==4.0.1
 cachetools==5.3.2
 celery
+kombu>=5.0.0
 fastapi-socketio==0.0.10
 fastapi
 gunicorn==21.2.0
