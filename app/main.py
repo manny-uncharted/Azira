@@ -9,9 +9,7 @@ from routes import users, trigger_router
 from notifications.messaging_bq import zmqConn
 
 origins = [
-    "http://localhost:8000",
-    "http://localhost:8080",
-    "http://localhost:3000",
+    "*"
 ]
 
 app = FastAPI(debug=True)
