@@ -2,14 +2,17 @@
 # utils/auth_jwt
 ## Jwt implementation
 
+import os
 import bcrypt
 import jwt
 import binascii
 from datetime import datetime, timedelta
+from dotenv import load_dotenv
+load_dotenv()
 
-SECRET_KEY = "234234-37437y3-435364gr"  # Replace with your actual secret key
-ALGORITHM = "HS256"
-ACCESS_TOKEN_EXPIRE_MINUTES = 30
+SECRET_KEY = os.environ.get("SECRET")
+ALGORITHM = os.environ.get("ALGORITHM")
+ACCESS_TOKEN_EXPIRE_MINUTES = os.environ.get("ACCESS_TOKEN_EXPIRE")
 
 # Utility function to hash passwords
 def create_hash_password(password: str):
