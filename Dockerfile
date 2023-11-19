@@ -16,6 +16,9 @@ RUN apt update -y && \
     apt clean && \
     rm -rf /var/lib/apt/lists/*
 
+EXPOSE 5558
+EXPOSE 5556
+
 
 # Install the required Python packages from requirements.txt
 RUN python3 -m venv /opt/venv
