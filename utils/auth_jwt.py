@@ -12,7 +12,8 @@ load_dotenv()
 
 SECRET_KEY = os.environ.get("SECRET")
 ALGORITHM = os.environ.get("ALGORITHM")
-ACCESS_TOKEN_EXPIRE_MINUTES = os.environ.get("ACCESS_TOKEN_EXPIRE")
+ACCESS_TOKEN_EXPIRE_MINUTES = int(os.environ.get("ACCESS_TOKEN_EXPIRE"))
+# print(ACCESS_TOKEN_EXPIRE_MINUTES)
 
 # Utility function to hash passwords
 def create_hash_password(password: str):

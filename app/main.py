@@ -19,7 +19,7 @@ zmq_server = zmqConn()
 async def startup_event():
     await zmq_server._zmq_config(5556)
     asyncio.create_task(zmq_server.load_data())
-    asyncio.create_task(zmq_server.server_setup("5556"))
+    asyncio.create_task(zmq_server.server_setup("5558"))
 
 @app.on_event("shutdown")
 async def shutdown_event():
