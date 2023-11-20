@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+  myapp:
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "5556:5556"
+      - "8000:8000"
+      - "5558:5558"
+    volumes:
+      - .:/app
+    environment:
+      - PORT=8000
