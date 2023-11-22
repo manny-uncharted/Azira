@@ -43,4 +43,3 @@ app.add_middleware(ProcessTimeMiddleware)
 
 app.include_router(users.router, prefix="/api/v1/users")
 app.include_router(trigger_router.trigger)
-
